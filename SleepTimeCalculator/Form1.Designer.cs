@@ -33,7 +33,7 @@
             this.rbSleep = new System.Windows.Forms.RadioButton();
             this.rbWake = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbOutput = new System.Windows.Forms.RichTextBox();
             this.btnCalc = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -67,7 +67,6 @@
             this.rbSleep.Name = "rbSleep";
             this.rbSleep.Size = new System.Drawing.Size(87, 17);
             this.rbSleep.TabIndex = 2;
-            this.rbSleep.TabStop = true;
             this.rbSleep.Text = "Fall asleep at";
             this.rbSleep.UseVisualStyleBackColor = true;
             // 
@@ -91,17 +90,17 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             // 
-            // richTextBox1
+            // rtbOutput
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.rtbOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Enabled = false;
-            this.richTextBox1.Location = new System.Drawing.Point(13, 43);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(735, 353);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "";
+            this.rtbOutput.Enabled = false;
+            this.rtbOutput.Location = new System.Drawing.Point(13, 43);
+            this.rtbOutput.Name = "rtbOutput";
+            this.rtbOutput.Size = new System.Drawing.Size(735, 353);
+            this.rtbOutput.TabIndex = 5;
+            this.rtbOutput.Text = "";
             // 
             // btnCalc
             // 
@@ -119,7 +118,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(760, 408);
             this.Controls.Add(this.btnCalc);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.rtbOutput);
             this.Controls.Add(this.rbWake);
             this.Controls.Add(this.rbSleep);
             this.Controls.Add(this.btnNow);
@@ -139,7 +138,7 @@
         private System.Windows.Forms.RadioButton rbSleep;
         private System.Windows.Forms.RadioButton rbWake;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbOutput;
         private System.Windows.Forms.Button btnCalc;
     }
 }
