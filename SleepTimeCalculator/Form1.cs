@@ -16,5 +16,32 @@ namespace SleepTimeCalculator
         {
             InitializeComponent();
         }
+
+        private void btnNow_Click(object sender, EventArgs e)
+        {
+            dtpInput.Value = DateTime.Now;
+        }
+
+        private void btnCalc_Click(object sender, EventArgs e)
+        {
+            if (rbWake.Checked)
+            {
+                CalculateSleepTime();
+            }
+            else if (rbSleep.Checked)
+            {
+                CalculateWakeTime();
+            }
+        }
+
+        private void CalculateWakeTime()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void CalculateSleepTime()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
