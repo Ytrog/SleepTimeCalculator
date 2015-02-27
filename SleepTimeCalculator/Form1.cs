@@ -56,13 +56,22 @@ namespace SleepTimeCalculator
                 times[i] = i == 0 ? begin + _cycle : times[i - 1] + _cycle;
             }
 
-            rtbOutput.Text = Format(times);
+            RichFormat(times);
 	
         }
 
         private void CalculateSleepTime()
         {
-            throw new NotImplementedException();
+            TimeSpan end = BoxValue;
+
+            TimeSpan[] times = new TimeSpan[6];
+
+            for (int i = times.Length; i < 0; i--)
+            {
+                times[i] = i == times.Length ? end - _cycle : times[i + 1] - _cycle;
+            }
+
+            RichFormat(times, false);
         }
 
         private static string Format(TimeSpan[] times)
@@ -78,7 +87,57 @@ namespace SleepTimeCalculator
 
         private static string Format(TimeSpan t)
         {
-            return t.ToString("hhmm");
+            return t.ToString("hh\\:mm");
+        }
+
+        private void RichFormat(TimeSpan[] times, bool forward = true)
+        {
+            var box = rtbOutput;
+            if (forward)
+            {
+                for (int i = 0; i < times.Length; i++)
+                {
+                    FormatTime(times, box, i);
+                }
+            }
+            else
+            {
+                for (int i = times.Length; i > 0; i--)
+                {
+                    FormatTime(times, box, i);
+                }
+            }
+        }
+
+        private static void FormatTime(TimeSpan[] times, RichTextBox box, int i)
+        {
+            string time = Format(times[i]) + Environment.NewLine;
+            Action<Color> color = c => box.AddColor(time, c);
+            switch (i)
+            {
+                case 0:
+                    box.AddRed(time);
+                    break;
+                case 1:
+                    box.AddColor(time, Color.OrangeRed);
+                    break;
+                case 2:
+                    color(Color.Orange);
+                    break;
+                case 3:
+                    color(Color.PaleGreen);
+                    break;
+                case 4:
+                    color(Color.LightGreen);
+                    break;
+                case 5:
+                    color(Color.Green);
+                    break;
+                default:
+                    box.AddBlack(time);
+                    break;
+
+            }
         }
         
     }
